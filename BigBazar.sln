@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBazar.Web", "BigBazar.Web\BigBazar.Web.csproj", "{CAF992D7-95DD-4F92-8E1D-B3E0AB4B511A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBazar.Entities", "BigBazar.Entities\BigBazar.Entities.csproj", "{3F7CAF2F-3230-40E7-9B61-ED15B53FFBD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBazar.Database", "BigBazar.Database\BigBazar.Database.csproj", "{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{CAF992D7-95DD-4F92-8E1D-B3E0AB4B511A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAF992D7-95DD-4F92-8E1D-B3E0AB4B511A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAF992D7-95DD-4F92-8E1D-B3E0AB4B511A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F7CAF2F-3230-40E7-9B61-ED15B53FFBD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7CAF2F-3230-40E7-9B61-ED15B53FFBD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7CAF2F-3230-40E7-9B61-ED15B53FFBD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7CAF2F-3230-40E7-9B61-ED15B53FFBD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
