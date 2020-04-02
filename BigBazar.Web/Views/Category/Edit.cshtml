@@ -1,0 +1,24 @@
+﻿@model BigBazar.Entities.Category
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Category</h2>
+
+<form method="post">
+    <input type="hidden" name="ID" value="@Model.ID" />
+
+    <br />
+
+    <label>Name</label>
+    <input name="name" value="@Model.Name" />
+
+    <br />
+
+    <label>Description</label>
+    <input name="description" value="@Model.Description" />
+
+    <br />
+
+    <button type="submit">Save</button>
+</form>

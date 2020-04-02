@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BigBazar.Database
 {
-    public class BDContext : DbContext
+    public class BDContext : DbContext, IDisposable
     {
         public BDContext() : base("BigBazarConnection")
         {

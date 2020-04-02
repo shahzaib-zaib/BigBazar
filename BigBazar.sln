@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBazar.Entities", "BigBaz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBazar.Database", "BigBazar.Database\BigBazar.Database.csproj", "{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigBazar.Services", "BigBazar.Services\BigBazar.Services.csproj", "{DDA0D3B7-ED11-463D-AF7A-68483B9E09B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BA5B01F-B6FE-4133-A2A5-D4D1E839CA19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA0D3B7-ED11-463D-AF7A-68483B9E09B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA0D3B7-ED11-463D-AF7A-68483B9E09B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA0D3B7-ED11-463D-AF7A-68483B9E09B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA0D3B7-ED11-463D-AF7A-68483B9E09B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
