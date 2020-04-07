@@ -12,9 +12,19 @@
     <br />
 
     <label>Description</label>
-    <input name="description" />
+    <input name="Description" />
+
+    <br />
+
+    <label>Image</label>
+    <input id="ImageUpload" name="Image" type="file" accept=".png, .jpg" />
 
     <br />
 
     <button type="submit">Save</button>
 </form>
+<script>
+    $("#ImageUpload").change(function () {
+        alert("Done");
+    })
+</script>
