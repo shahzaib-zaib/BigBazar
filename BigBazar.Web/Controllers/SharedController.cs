@@ -19,7 +19,7 @@ namespace BigBazar.Web.Controllers
             {
                 var file = Request.Files[0];
 
-                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName); //when upload 2 picture with the same name
 
                 var path = Path.Combine(Server.MapPath("~/Content/images/"), fileName);
 
