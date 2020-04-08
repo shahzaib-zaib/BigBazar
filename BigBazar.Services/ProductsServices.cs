@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data.Entity;
 namespace BigBazar.Services
 {
     public class ProductsService
@@ -21,13 +21,15 @@ namespace BigBazar.Services
         {
             using (var context = new BDContext())
             {
-                return context.Products.ToList();
+                return context.Products.Include(a => a.Category).ToList();
             }
         }
         public void SaveProduct(Product product)
         {
             using (var context = new BDContext())
             {
+                context.Entry(product.Category).State = System.Data.Entity.EntityState.Unchanged;
+
                 context.Products.Add(product);
                 context.SaveChanges();
             }

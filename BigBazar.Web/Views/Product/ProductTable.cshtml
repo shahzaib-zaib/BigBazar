@@ -25,13 +25,23 @@
                 @foreach (var product in Model)
                 {
                     <tr>
-                        <th>@product.Name</th>
-                        <th>-</th>
-                        <th>@product.Price</th>
-                        <th>
+                        <td>@product.Name</td>
+                        <td>
+                            @product.Category.Name
+                            @if (product.Category != null)
+                            {
+                                <text>@product.Category.Name</text>
+                            }
+                            else
+                            {
+                                <text>-</text>
+                            }
+                        </td>
+                        <td>@product.Price</td>
+                        <td>
                             <button class="editBtn" data-id="@product.ID">Edit</button>
                             <button class="deleteBtn" data-id="@product.ID">Delete</button>
-                        </th>
+                        </td>
                     </tr>
                 }
             </tbody>
