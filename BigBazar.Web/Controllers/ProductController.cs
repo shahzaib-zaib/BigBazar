@@ -30,7 +30,9 @@ namespace BigBazar.Web.Controllers
          [HttpGet]
         public ActionResult Create()
         {
-            return PartialView();
+            CategoriesService categoriesService = new CategoriesService();
+            var categories = categoriesService.GetCategories();
+            return PartialView(categories);
         }
 
         [HttpPost]
