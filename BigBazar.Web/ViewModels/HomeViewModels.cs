@@ -8,6 +8,7 @@ namespace BigBazar.Web.ViewModels
 {
     public class HomeViewModels
     {
-        public List<Category> Categories { get; set; }
+        public List<Category> FeaturedCategories { get; set; }
+        public List<Product> FeaturedProducts { get; set; }
     }
 }

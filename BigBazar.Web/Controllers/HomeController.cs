@@ -16,7 +16,7 @@ namespace BigBazar.Web.Controllers
         {
             HomeViewModels model = new HomeViewModels();
 
-            model.Categories = categoryService.GetCategories();
+            model.FeaturedCategories = categoryService.GetCategories();
 
             return View(model);
         }
