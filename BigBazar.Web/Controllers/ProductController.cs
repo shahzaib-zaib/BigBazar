@@ -46,6 +46,7 @@ namespace BigBazar.Web.Controllers
             newProduct.Name = model.Name;
             newProduct.Description = model.Description;
             newProduct.Price = model.Price;
+            //newProduct.CategoryID = model.CategoryID;
             newProduct.Category = categoriesService.GetCategory(model.CategoryID);
             productsService.SaveProduct(newProduct);
             return RedirectToAction("ProductTable");
