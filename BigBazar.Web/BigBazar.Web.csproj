@@ -171,8 +171,11 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrderControlle.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\WidgetsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -535,6 +538,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\about\" />
+    <Folder Include="Views\OrderControlle\" />
+    <Folder Include="Views\Shop\" />
+    <Folder Include="Views\Widgets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

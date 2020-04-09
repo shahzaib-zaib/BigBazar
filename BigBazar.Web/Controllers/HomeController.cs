@@ -10,13 +10,11 @@ namespace BigBazar.Web.Controllers
 {
     public class HomeController : Controller
     {
-        CategoriesService categoryService = new CategoriesService();
-
         public ActionResult Index()
         {
-            HomeViewModels model = new HomeViewModels();
+            HomeViewModel model = new HomeViewModel();
 
-            model.FeaturedCategories = categoryService.GetCategories();
+            model.FeaturedCategories = CategoriesService.Instance.GetFeaturedCategories();
 
             return View(model);
         }

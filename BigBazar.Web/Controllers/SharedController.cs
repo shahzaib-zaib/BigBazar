@@ -12,20 +12,19 @@ namespace BigBazar.Web.Controllers
         public JsonResult UploadImage()
         {
             JsonResult result = new JsonResult();
-
             result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
 
             try
             {
                 var file = Request.Files[0];
 
-                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName); //when upload 2 picture with the same name
+                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
 
-                var path = Path.Combine(Server.MapPath("~/Content/images/"), fileName);
+                var path = Path.Combine(Server.MapPath("~/content/images/"), fileName);
 
                 file.SaveAs(path);
 
-                result.Data = new { Success = true, ImageURL = string.Format("/Content/images/{0}", fileName) };
+                result.Data = new { Success = true, ImageURL = string.Format("/content/images/{0}", fileName) };
 
                 //var newImage = new Image() { Name = fileName };
 
