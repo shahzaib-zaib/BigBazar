@@ -20,6 +20,11 @@ namespace BigBazar.Web.Controllers
         public ActionResult ProductTable(string search)
         {
             var products = productsService.GetProducts();
+            if (string.IsNullOrEmpty(search) == false)
+            {
+                products = products.Where(a => a.Name != null && a.Name.ToLower().Contains(search.ToLower())).ToList();
+            }
+            
             return PartialView(products);
         }
 
