@@ -1,6 +1,4 @@
-﻿using BigBazar.Services;
-using BigBazar.Web.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,11 +10,8 @@ namespace BigBazar.Web.Controllers
     {
         public ActionResult Index()
         {
-            HomeViewModel model = new HomeViewModel();
 
-            model.FeaturedCategories = CategoriesService.Instance.GetFeaturedCategories();
-
-            return View(model);
+            return View();
         }
 
         public ActionResult About()

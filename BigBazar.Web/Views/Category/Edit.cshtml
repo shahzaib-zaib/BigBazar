@@ -5,20 +5,29 @@
 
 <h2>Edit Category</h2>
 
-<form method="post">
+<form id="editCategory">
     <input type="hidden" name="ID" value="@Model.ID" />
 
-    <br />
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label>Name</label>
+                <input class="form-control" name="Name" value="@Model.Name" />
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <input class="form-control" name="Description" value="@Model.Description" />
+            </div>
+            <div class="form-group">
+                <label>Image</label>
+                <input type="hidden" id="ImageURL" name="ImageURL" value="@Model.ImageURL" />
+                <input class="form-control" id="imageUpload" name="Image" type="file" accept=".png, .jpg" />
+            </div>
+            
+        </div>
+        
+    </div>
 
-    <label>Name</label>
-    <input name="name" value="@Model.Name" />
-
-    <br />
-
-    <label>Description</label>
-    <input name="description" value="@Model.Description" />
-
-    <br />
-
-    <button type="submit">Save</button>
+    <button id="updateBtn" type="button" class="btn btn-primary">Update</button>
+    <button id="cancelBtn" type="button" class="btn btn-primary">Cancel</button>
 </form>

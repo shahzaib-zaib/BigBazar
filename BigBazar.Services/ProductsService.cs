@@ -8,44 +8,44 @@ using System.Threading.Tasks;
 
 namespace BigBazar.Services
 {
-    public class CategoriesService
+    public class ProductsService
     {
-        public Category GetCategory(int ID)
+        public Product GetProduct(int ID)
         {
             using (var context = new BDContext())
             {
-                return context.Categories.Find(ID);
+                return context.Products.Find(ID);
             }
         }
-        public List<Category> GetCategories()
+        public List<Product> GetProducts()
         {
             using (var context = new BDContext())
             {
-                return context.Categories.ToList();
+                return context.Products.ToList();
             }
         }
-        public void SaveCategory(Category category)
+        public void SaveProduct(Product product)
         {
             using (var context = new BDContext())
             {
-                context.Categories.Add(category);
+                context.Products.Add(product);
                 context.SaveChanges();
             }
         }
-        public void UpdateCategory(Category category)
+        public void UpdateProduct(Product product)
         {
             using (var context = new BDContext())
             {
-                context.Entry(category).State = System.Data.Entity.EntityState.Modified;
+                context.Entry(product).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
             }
         }
-        public void DeleteCategory(int ID)
+        public void DeleteProduct(int ID)
         {
             using (var context = new BDContext())
             {
-                var category = context.Categories.Find(ID);
-                context.Categories.Remove(category);
+                var product = context.Products.Find(ID);
+                context.Products.Remove(product);
                 context.SaveChanges();
             }
         }

@@ -8,35 +8,20 @@ using System.Web.Mvc;
 
 namespace BigBazar.Web.Controllers
 {
-    //[Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
+        CategoriesService categoryService = new CategoriesService();
+
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var categories = categoryService.GetCategories();
+            return View(categories);
         }
 
-        public ActionResult CategoryTable(string search, int? pageNo)
+        public ActionResult CategoryTable()
         {
-            CategorySearchViewModel model = new CategorySearchViewModel();
-            model.SearchTerm = search;
-
-            pageNo = pageNo.HasValue ? pageNo.Value > 0 ? pageNo.Value : 1 : 1;
-
-            var totalRecords = CategoriesService.Instance.GetCategoriesCount(search);
-            model.Categories = CategoriesService.Instance.GetCategories(search, pageNo.Value);
-
-            if (model.Categories != null)
-            {
-                model.Pager = new Pager(totalRecords, pageNo, 3);
-
-                return PartialView("_CategoryTable", model);
-            }
-            else
-            {
-                return HttpNotFound();
-            }
+            return HttpNotFound();
         }
 
         #region Creation
@@ -44,73 +29,37 @@ namespace BigBazar.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            NewCategoryViewModel model = new NewCategoryViewModel();
-
-            return PartialView(model);
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Create(NewCategoryViewModel model)
+        public ActionResult Create(Category category)
         {
-            if (ModelState.IsValid)
-            {
-                var newCategory = new Category();
-                newCategory.Name = model.Name;
-                newCategory.Description = model.Description;
-                newCategory.ImageURL = model.ImageURL;
-                newCategory.isFeatured = model.isFeatured;
-
-                CategoriesService.Instance.SaveCategory(newCategory);
-
-                return RedirectToAction("CategoryTable");
-            }
-            else
-            {
-                return new HttpStatusCodeResult(500);
-            }
+            categoryService.SaveCategory(category);
+            return RedirectToAction("Index");
         }
 
-        #endregion
-
-        #region Updation
 
         [HttpGet]
         public ActionResult Edit(int ID)
         {
-            EditCategoryViewModel model = new EditCategoryViewModel();
-
-            var category = CategoriesService.Instance.GetCategory(ID);
-
-            model.ID = category.ID;
-            model.Name = category.Name;
-            model.Description = category.Description;
-            model.ImageURL = category.ImageURL;
-            model.isFeatured = category.isFeatured;
-
-            return PartialView(model);
+            var category = categoryService.GetCategory(ID);
+            return View(category);
         }
 
         [HttpPost]
-        public ActionResult Edit(EditCategoryViewModel model)
+        public ActionResult Edit(Category category)
         {
-            var existingCategory = CategoriesService.Instance.GetCategory(model.ID);
-            existingCategory.Name = model.Name;
-            existingCategory.Description = model.Description;
-            existingCategory.ImageURL = model.ImageURL;
-            existingCategory.isFeatured = model.isFeatured;
-
-            CategoriesService.Instance.UpdateCategory(existingCategory);
-
-            return RedirectToAction("CategoryTable");
+            categoryService.UpdateCategory(category);
+            return RedirectToAction("Index");
         }
 
         #endregion
 
         [HttpPost]
-        public ActionResult Delete(int ID)
+        public ActionResult Delete(Category category)
         {
-            CategoriesService.Instance.DeleteCategory(ID);
-
+            categoryService.DeleteCategory(category.ID);
             return RedirectToAction("CategoryTable");
         }
     }
