@@ -28,7 +28,7 @@ namespace BigBazar.Services
         {
             using (var context = new BDContext())
             {
-                return context.Categories.Where(x => x.IsFeatured).ToList();
+                return context.Categories.Where(x => x.IsFeatured && x.ImageURL !=null).ToList();
             }
         }
         public void SaveCategory(Category category)

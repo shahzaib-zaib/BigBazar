@@ -1,5 +1,6 @@
 ﻿using BigBazar.Entities;
 using BigBazar.Services;
+using BigBazar.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,14 @@ namespace BigBazar.Web.Controllers
             return View(categories);
         }
 
-        public ActionResult CategoryTable()
+        public ActionResult CategoryTable(string search)
         {
+            CategorySearchViewModel model = new CategorySearchViewModel();
+            model.Categories = categoryService.GetCategories();
+            if (!string.IsNullOrEmpty(search))
+            {
+                model.SearchTerm = search;
+            }
             return HttpNotFound();
         }
 
