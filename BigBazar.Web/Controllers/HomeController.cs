@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BigBazar.Services;
+using BigBazar.Web.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,13 @@ namespace BigBazar.Web.Controllers
 {
     public class HomeController : Controller
     {
+        CategoriesService categoriesService = new CategoriesService();
         public ActionResult Index()
         {
+            HomeViewModel models = new HomeViewModel();
 
-            return View();
+            models.FeaturedCategories = categoriesService.GetFeaturedCategories();
+            return View(models);
         }
 
         public ActionResult About()

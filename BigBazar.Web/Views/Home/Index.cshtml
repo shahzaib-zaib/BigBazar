@@ -1,4 +1,4 @@
-﻿
+﻿@model BigBazar.Web.ViewModels.HomeViewModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -182,6 +182,13 @@
 </div>
 <!-- END SLIDER -->
 
+@if (Model.FeaturedCategories != null & Model.FeaturedCategories.Count >= 4)
+{
+    var firstCategory = Model.FeaturedCategories[0];
+    var secondCategory = Model.FeaturedCategories[1];
+    var thirdCategory = Model.FeaturedCategories[2];
+    var fourthCategory = Model.FeaturedCategories[3];
+
     <!-- IMAGE BOX -->
     <section class="flat-row row-image-box">
         <div class="container">
@@ -190,13 +197,16 @@
                     <div class="flat-image-box style-1 data-effect div-h22 clearfix">
                         <div class="item data-effect-item">
                             <div class="inner">
+                                @if (firstCategory != null)
+                                {
                                     <div class="thumb">
-                                        <img src="images/image-box/imgbox-1-375x500.jpg" alt="Image">
+                                        <img src="@firstCategory.ImageURL" alt="Image">
                                         <div class="elm-btn">
-                                            <a href="#" class="themesflat-button bg-white width-150">For Men’s</a>
+                                            <a href="#" class="themesflat-button bg-white width-150">@firstCategory.Name</a>
                                         </div>
                                         <div class="overlay-effect bg-color-1"></div>
                                     </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -205,27 +215,31 @@
                     <div class="flat-image-box style-1 row2 data-effect clearfix">
                         <div class="item data-effect-item">
                             <div class="inner">
+                                @if (secondCategory != null)
+                                {
                                     <div class="thumb">
-                                        <img src="images/image-box/imgbox-1-375x240.jpg" alt="Image">
+                                        <img src="@secondCategory.ImageURL" alt="Image">
                                         <div class="elm-btn">
-                                            <a href="#" class="themesflat-button bg-white width-150">For Kid’s</a>
+                                            <a href="#" class="themesflat-button bg-white width-150">@secondCategory.Name</a>
                                         </div>
                                         <div class="overlay-effect bg-color-1"></div>
                                     </div>
-
+                                }
                             </div>
                         </div>
 
                         <div class="item data-effect-item">
                             <div class="inner">
-
+                                @if (thirdCategory != null)
+                                {
                                     <div class="thumb">
-                                        <img src="images/image-box/imgbox-2-375x240.jpg" alt="Image">
+                                        <img src="@thirdCategory.ImageURL" alt="Image">
                                         <div class="elm-btn">
-                                            <a href="#" class="themesflat-button bg-white width-150">accessories</a>
+                                            <a href="#" class="themesflat-button bg-white width-150">@thirdCategory.Name</a>
                                         </div>
                                         <div class="overlay-effect bg-color-1"></div>
                                     </div>
+                                }
 
                             </div>
                         </div>
@@ -235,13 +249,16 @@
                     <div class="flat-image-box style-1 data-effect div-h20 clearfix">
                         <div class="item data-effect-item">
                             <div class="inner">
+                                @if (fourthCategory != null)
+                                {
                                     <div class="thumb">
-                                        <img src="images/image-box/imgbox-2-375x500.jpg" alt="Image">
+                                        <img src="@fourthCategory.ImageURL" alt="Image">
                                         <div class="elm-btn">
-                                            <a href="#" class="themesflat-button bg-white width-150">For woMen’s</a>
+                                            <a href="#" class="themesflat-button bg-white width-150">@fourthCategory.Name</a>
                                         </div>
                                         <div class="overlay-effect bg-color-1"></div>
                                     </div>
+                                }
 
                             </div>
                         </div>
@@ -264,6 +281,7 @@
                     </h2>
                 </div>
 
+                @{Html.RenderAction("Products", "Widgets", new { isLatestProducts = true });}
 
             </div>
         </div><!-- /.row -->
@@ -299,7 +317,7 @@
                     <h2 class="title">Best Sale</h2>
                 </div>
 
-
+                @{Html.RenderAction("Products", "Widgets", new { isLatestProducts = false });}
 
             </div>
         </div>

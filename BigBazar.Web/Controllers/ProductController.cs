@@ -1,5 +1,6 @@
 ﻿using BigBazar.Entities;
 using BigBazar.Services;
+using BigBazar.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,34 +32,44 @@ namespace BigBazar.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return PartialView();
+            CategoriesService categoriesService = new CategoriesService();
+            var categories = categoriesService.GetCategories();
+            return PartialView(categories);
         }
 
         [HttpPost]
-        public ActionResult Create(Product product)
+        public ActionResult Create(NewCategoryViewModel model)
         {
-            productsService.SaveProduct(product);
+            CategoriesService categoriesService = new CategoriesService();
+
+            var newProduct = new Product();
+            newProduct.Name = model.Name;
+            newProduct.Description = model.Description;
+            newProduct.Price = model.Price;
+            //newProduct.CategoryID = model.CategoryID;
+            newProduct.Category = categoriesService.GetCategory(model.CategoryID);
+            productsService.SaveProduct(newProduct);
             return RedirectToAction("ProductTable");
         }
 
         [HttpGet]
         public ActionResult Edit(int ID)
         {
-
-            return PartialView();
+            var products = productsService.GetProduct(ID);
+            return PartialView(products);
         }
 
         [HttpPost]
-        public ActionResult Edit()
+        public ActionResult Edit(Product product)
         {
-
+            productsService.UpdateProduct(product);
             return RedirectToAction("ProductTable");
         }
 
         [HttpPost]
         public ActionResult Delete(int ID)
         {
-
+            productsService.DeleteProduct(ID);
             return RedirectToAction("ProductTable");
         }
 
